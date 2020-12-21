@@ -4,12 +4,13 @@ import javax.persistence.*
 
 @Entity
 class Administrator {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    var id = -1
+//
+//    @Column(nullable = false, unique = true, length = 12)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id = -1
-
-    @Column(nullable = false, unique = true, length = 12)
-    var serialNumber = -1
+    var serialNumber = ""
 
     @Column(nullable = false, length = 50)
     var name = ""

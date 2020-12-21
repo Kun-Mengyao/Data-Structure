@@ -23,5 +23,8 @@ class Commodity {
 
 
     @Column(nullable = false)
-    var seller = -1
+    var seller = ""
+
+    @Column
+    var buyer = ""
 }
