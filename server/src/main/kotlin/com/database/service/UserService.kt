@@ -10,7 +10,7 @@ class UserService {
     @Autowired
     private lateinit var userDAO: UserDAO
 
-    fun checkUser(serialNumber: String, password: String): User? {
+    fun checkUser(serialNumber: Int, password: String): User? {
         return if(!userDAO.existsBySerialNumber(serialNumber))
             null
         else {
@@ -21,6 +21,11 @@ class UserService {
                 null
         }
     }
+
+    fun checkExist(serialNumber: Int):Boolean{
+        return userDAO.existsBySerialNumber(serialNumber)
+    }
+
 
     fun String.ziHuaNB(): String {
         return "$this ziHuaNB"

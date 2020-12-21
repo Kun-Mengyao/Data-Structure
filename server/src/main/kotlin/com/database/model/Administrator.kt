@@ -1,10 +1,9 @@
 package com.database.model
 
-import java.util.*
 import javax.persistence.*
 
 @Entity
-class User {
+class Administrator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id = -1
@@ -18,19 +17,8 @@ class User {
     @Column(nullable = false)
     var sex = ""
 
-    @Column(nullable = false)
-    var college = ""
-
-    @Column(nullable = false)
-    var major = ""
-
-    @Column(nullable = false)
-    var dormitory = ""
-
     @Lob
     @Column(nullable = false)
     var password = ""
 
-    @Column(columnDefinition = "datetime")
-    var birthday = Date()
 }
