@@ -1,5 +1,6 @@
 package com.database.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.*
 import javax.persistence.*
 
@@ -30,6 +31,7 @@ class User {
 
     @Lob
     @Column(nullable = false)
+    @JsonIgnore
     var password = ""
 
     @Column(columnDefinition = "datetime")

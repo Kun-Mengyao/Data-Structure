@@ -46,9 +46,10 @@ class CommodityController {
         return commodityDAO.findAllByBuyer(serialNumber)
     }
 
+    //获取交易记录（买家不为“”，但不是null）
     @GetMapping("/allTrade")
-    fun allTrade(empty: String): List<Commodity> {
-        return commodityDAO.findAllByBuyerIsNot(empty)
+    fun allTrade(): List<Commodity> {
+        return commodityDAO.findAllByBuyerIsNot("")
     }
 
 }
