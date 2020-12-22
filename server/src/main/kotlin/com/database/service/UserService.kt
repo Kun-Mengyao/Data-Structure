@@ -11,18 +11,18 @@ class UserService {
     private lateinit var userDAO: UserDAO
 
     fun checkUser(serialNumber: String, password: String): User? {
-        return if(!userDAO.existsBySerialNumber(serialNumber))
+        return if (!userDAO.existsBySerialNumber(serialNumber))
             null
         else {
             val user = userDAO.findBySerialNumber(serialNumber)
-            if(user!!.password == password)
+            if (user!!.password == password)
                 user
             else
                 null
         }
     }
 
-    fun checkExist(serialNumber: String):Boolean{
+    fun checkExist(serialNumber: String): Boolean {
         return userDAO.existsBySerialNumber(serialNumber)
     }
 
