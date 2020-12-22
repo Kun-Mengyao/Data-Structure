@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 class User {
-//    @Id
+    //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    var id = -1
 //
@@ -33,5 +33,5 @@ class User {
     var password = ""
 
     @Column(columnDefinition = "datetime")
-    var birthday = Date()
+    var birthday = Date(2000, 1, 1)
 }

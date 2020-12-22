@@ -35,16 +35,16 @@ class UserController {
     }
 
     //http://localhost:10086/api/test
-    @GetMapping("/test")
-    fun body(@RequestBody test: Test): ResponseEntity<*> {
-        val (a,_,c)=test
-        val user = userService.checkUser(a, c) ?: return ResponseEntity("用户名或密码错误",HttpStatus.BAD_REQUEST)
-        return ResponseEntity(user, HttpStatus.OK)
-    }
+//    @GetMapping("/test")
+//    fun body(@RequestBody test: Test): ResponseEntity<*> {
+//        val (a,_,c)=test
+//        val user = userService.checkUser(a, c) ?: return ResponseEntity("用户名或密码错误",HttpStatus.BAD_REQUEST)
+//        return ResponseEntity(user, HttpStatus.OK)
+//    }
 
     //注册
     @PostMapping("/register")
-    fun register(@RequestBody user:User):ResponseEntity<HttpStatus>{
+    fun register(@RequestBody user: User):ResponseEntity<HttpStatus>{
         if(userDAO.existsBySerialNumber(user.serialNumber))
             return ResponseEntity(HttpStatus.BAD_REQUEST)
         else
