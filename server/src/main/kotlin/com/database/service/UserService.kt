@@ -22,10 +22,6 @@ class UserService {
         }
     }
 
-    fun checkExist(serialNumber: String): Boolean {
-        return userDAO.existsBySerialNumber(serialNumber)
-    }
-
 
     fun String.ziHuaNB(): String {
         return "$this ziHuaNB"
