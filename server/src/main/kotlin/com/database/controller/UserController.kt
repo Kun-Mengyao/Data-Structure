@@ -75,12 +75,9 @@ class UserController {
     //修改密码,需要确认两次
     @PostMapping("/modifyUserPassword")
     fun modifyUserPassword(
-        @PathVariable serialNumber: String, oldPassword: String, firstPassward: String, secondPassword: String
+        serialNumber: String, oldPassword: String, firstPassward: String, secondPassword: String
     ): ResponseEntity<*> {
         var user = userDAO.findBySerialNumber(serialNumber);
-        if (user == null) {
-
-        }
         if (user!!.password != oldPassword) {
             return ResponseEntity("用户旧密码输入不正确", HttpStatus.BAD_REQUEST)
         }

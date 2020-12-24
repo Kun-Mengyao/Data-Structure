@@ -6,7 +6,7 @@ import java.util.*
 import javax.persistence.*
 
 enum class CommodityStatus {
-    OnSale, Ordered, InTransit, Finished
+    onSale, ordered, inTransit, finished
 }
 
 @Entity
@@ -35,7 +35,7 @@ class Commodity {
     var buyer = ""
 
     @Column
-    var status = CommodityStatus.OnSale
+    var status = CommodityStatus.onSale
 
     //Time
     @Column(columnDefinition = "datetime")
