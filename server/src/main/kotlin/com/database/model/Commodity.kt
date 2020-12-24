@@ -13,7 +13,7 @@ enum class CommodityStatus {
 class Commodity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id = -1L
+    var id = -1
 
     @Column(nullable = false, length = 50)
     var name = ""

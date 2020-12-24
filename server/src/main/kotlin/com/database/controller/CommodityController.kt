@@ -34,6 +34,18 @@ class CommodityController {
         return ResponseEntity(HttpStatus.OK)
     }
 
+    //下架
+    @PostMapping("/unsell")
+    fun unsell(id:Int):HttpStatus{
+        if(commodityDAO.existsById(id)){
+            commodityDAO.deleteById(id)
+            return HttpStatus.OK
+        }
+        else
+            return HttpStatus.BAD_REQUEST
+
+    }
+
     //个人出售的商品
     @GetMapping("/sellOfUser")
     fun sellOfUser(serialNumber: String): List<Commodity> {
@@ -47,7 +59,7 @@ class CommodityController {
     }
 
     //获取交易记录(买家不为""，但不是null)
-    @GetMapping("/allBuyerTrade")
+    @GetMapping("/allTrade")
     fun allBuyerTrade(): List<Commodity> {
         return commodityDAO.findAllByBuyerIsNot("")
     }
