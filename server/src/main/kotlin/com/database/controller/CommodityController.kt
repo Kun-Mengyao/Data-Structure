@@ -69,7 +69,7 @@ class CommodityController {
         }
         var commodity = commodityDAO.findCommodityById(id)
         commodity.buyer = buyer
-        commodity.status = CommodityStatus.ordered
+        commodity.status = CommodityStatus.在售中
         commodityDAO.save(commodity)
         return ResponseEntity("下单成功", HttpStatus.OK)
     }
@@ -81,7 +81,7 @@ class CommodityController {
             return ResponseEntity("没有找到对应的商品", HttpStatus.BAD_REQUEST)
         }
         var commodity = commodityDAO.findCommodityById(id)
-        commodity.status = CommodityStatus.inTransit
+        commodity.status = CommodityStatus.运输中
         commodityDAO.save(commodity)
         return ResponseEntity("确认运输成功", HttpStatus.OK)
     }
@@ -93,7 +93,7 @@ class CommodityController {
             return ResponseEntity("没有找到对应的商品", HttpStatus.BAD_REQUEST)
         }
         var commodity = commodityDAO.findCommodityById(id)
-        commodity.status = CommodityStatus.finished
+        commodity.status = CommodityStatus.已完成
         commodityDAO.save(commodity)
         return ResponseEntity("订单已完成", HttpStatus.OK)
     }
