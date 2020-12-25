@@ -33,5 +33,5 @@ class User {
     var password = ""
 
     @Column(columnDefinition = "datetime")
-    var birthday = Date(2000, 1, 1)
+    var birthday = Date(100, 1, 1)
 }
