@@ -29,9 +29,7 @@ class User {
     @Column(nullable = false)
     var dormitory = ""
 
-    @Lob
     @Column(nullable = false)
-    @JsonIgnore
     var password = ""
 
     @Column(columnDefinition = "datetime")
