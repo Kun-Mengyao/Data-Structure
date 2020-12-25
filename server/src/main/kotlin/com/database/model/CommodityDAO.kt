@@ -10,4 +10,5 @@ interface CommodityDAO : JpaRepository<Commodity, Int> {
     fun findCommodityById(id: Int): Commodity
     fun existsCommodityById(id: Int): Boolean
     fun existsCommodityByIdAndSeller(id: Int, seller: String): Boolean
+    fun findAllByStatus(status: CommodityStatus):List<Commodity>
 }

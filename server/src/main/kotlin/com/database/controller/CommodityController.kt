@@ -26,6 +26,12 @@ class CommodityController {
         return commodityDAO.findAll()
     }
 
+    //所有在售商品
+    @GetMapping("/onSaleCommodityList")
+    fun onSaleCommodityList(): List<Commodity> {
+        return commodityDAO.findAllByStatus(CommodityStatus.在售中)
+    }
+
     //单个商品详细信息
     @GetMapping("/commodity")
     fun commodity(id: Int): Commodity {
@@ -69,7 +75,7 @@ class CommodityController {
         }
         var commodity = commodityDAO.findCommodityById(id)
         commodity.buyer = buyer
-        commodity.status = CommodityStatus.在售中
+        commodity.status = CommodityStatus.已下单
         commodityDAO.save(commodity)
         return ResponseEntity("下单成功", HttpStatus.OK)
     }
