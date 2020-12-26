@@ -104,6 +104,19 @@ class CommodityController {
         return ResponseEntity("订单已完成", HttpStatus.OK)
     }
 
+    //评价一个商品
+    @PostMapping("/comment")
+    fun comment(@RequestBody retCommodity: Commodity) : ResponseEntity<*> {
+        if (!commodityDAO.existsCommodityById(retCommodity.id)) {
+            return ResponseEntity("没有找到对应的商品", HttpStatus.BAD_REQUEST)
+        }
+        var commodity = commodityDAO.findCommodityById(retCommodity.id)
+        commodity.status = CommodityStatus.已评价
+        commodity.comment = retCommodity.comment
+        commodityDAO.save(commodity)
+        return ResponseEntity("订单已完成", HttpStatus.OK)
+    }
+
     //管理员下架商品
     @PostMapping("/adminUnSell")
     fun adminUnSell(id: Int): HttpStatus {

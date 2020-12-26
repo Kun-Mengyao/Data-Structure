@@ -6,7 +6,7 @@ import java.util.*
 import javax.persistence.*
 
 enum class CommodityStatus {
-    在售中, 已下单, 运输中, 已完成
+    在售中, 已下单, 运输中, 已完成, 已评价
 }
 
 @Entity
@@ -27,6 +27,8 @@ class Commodity {
     @Column(nullable = false)
     var description = ""
 
+    @Column(nullable = false)
+    var comment = ""
 
     @Column(nullable = false)
     var seller = ""
